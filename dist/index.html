@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>MNIST CNN Demo</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container">
+            <h3>{{ message }}</h3>
+            <div id="canvas_container">
+                <canvas id="draw_canvas" width="28" height="28"
+                    @touchmove="touch_draw"
+                    @mousemove="drag_draw"
+                    @mouseup="predict"
+                    @touchend="predict"></canvas>
+            </div>
+            <input v-model="pen_size" type="range" min="1" max="100" step="1">
+            <span>Pen Size:{{ pen_size }}</span>
+
+            <button @click="clear">Clear</button>
+        </div>
+
+        <script src="vue.min.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>
