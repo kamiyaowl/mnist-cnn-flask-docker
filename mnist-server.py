@@ -22,7 +22,7 @@ def index():
         "time": time.ctime(),
     }))
 
-# 28*28の画像をPOSTで一次元配列にして送ると、0~9の推論結果を返してくれる
+# 28*28の画像をPOSTで送ると、0~9の推論結果を返してくれる
 @app.route("/predict", methods=['POST'])
 def mnist():
     data = request.json
@@ -32,7 +32,7 @@ def mnist():
     if (src == None) | (not isinstance(src, list)):
         return abort(400)
     src = np.array(src)
-    # 正規化する、要素数が足りなかったとき用に増やしておく
+    # 正規化する
     src = src.astype('float32') / 255.0
     src = src.reshape(-1,28,28,1)
     # 推論する
