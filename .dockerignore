@@ -1,3 +1,4 @@
 .vscode
 Dockerfile
 README.md
+mnist-learn.py
